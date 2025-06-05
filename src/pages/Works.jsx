@@ -8,6 +8,12 @@ const projects = [
     demo: "https://ashgh89.github.io/react-pizza-app/",
   },
   {
+    title: "Germany Explorer",
+    description: "Made by React and CSS",
+    github: "https://github.com/Ashgh89/Germany-Explorer",
+    demo: "https://ashgh89.github.io/germany-explorer/",
+  },
+  {
     title: "Today Fresh",
     description: "Made by JavaScript and CSS",
     github: "https://github.com/Ashgh89/HTML-CSS-JS__My-Restaurant",

@@ -1,0 +1,13 @@
+When we use react-router-dom and netlify, there is a problem
+when we change nav e.g to Projects and refresh the website => page not found
+
+What to do?
+1. In public make a file => netlify.toml
+2. in netlify.toml:
+[[redirects]]
+  from = "/*"
+  to = "./index.html"
+  status = 200
+
+3. npm run build
+4. drag your dist folder in Netlify
