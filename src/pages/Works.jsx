@@ -2,16 +2,22 @@
 
 const projects = [
   {
-    title: "Pizza Website",
-    description: "Made by React and CSS",
-    github: "https://github.com/Ashgh89/react-pizza-app",
-    demo: "https://ashgh89.github.io/react-pizza-app/",
-  },
-  {
     title: "Germany Explorer",
     description: "Made by React and CSS",
     github: "https://github.com/Ashgh89/Germany-Explorer",
     demo: "https://ashgh89.github.io/germany-explorer/",
+  },
+  {
+    title: "Portfolio",
+    description: "Made by React and Tailwind",
+    github: "https://github.com/Ashgh89/portfolio-new",
+    demo: "https://iman-ghanei.netlify.app/",
+  },
+  {
+    title: "Pizza Website",
+    description: "Made by React and CSS",
+    github: "https://github.com/Ashgh89/react-pizza-app",
+    demo: "https://ashgh89.github.io/react-pizza-app/",
   },
   {
     title: "Today Fresh",
