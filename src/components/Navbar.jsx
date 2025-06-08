@@ -12,11 +12,11 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-6 py-4">
         {/* Branding / Logo */}
         <div className="text-2xl font-bold flex items-center gap-2">
-          <img
+          {/* <img
             src="/ashgh.png" // Path to your PNG icon (in public/images/ folder)
             alt="Logo"
             className="w-20 h-20" // Adjust the width and height as needed
-          />
+          /> */}
           {/* Optionally, you can still display the name */}
           {/* <span>Iman Ghanei</span> */}
         </div>

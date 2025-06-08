@@ -74,7 +74,7 @@ const About = () => {
 
         <div
           className="relative bg-cover bg-center text-white rounded-3xl shadow-2xl p-8 min-h-[250px] overflow-hidden"
-          style={{ backgroundImage: "url(p2.jpg)" }}
+          // style={{ backgroundImage: "url(p2.jpg)" }}
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -85,11 +85,13 @@ const About = () => {
               transition={{ duration: 0.4 }}
               className=" px-6 mt-2"
             >
-              <h3 className="text-xl font-bold">{experiences[index].title}</h3>
-              <p className="text-md text-green-700  font-medium">
+              <h3 className="text-xl font-bold text-center">
+                {experiences[index].title}
+              </h3>
+              <p className="text-md text-green-700  font-medium text-center">
                 {experiences[index].company}
               </p>
-              <p className="text-base text-red-400">
+              <p className="text-base text-red-400 text-center">
                 {experiences[index].description}
               </p>
             </motion.div>
