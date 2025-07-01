@@ -61,7 +61,7 @@ const About = () => {
 
         <p className="text-lg leading-8 text-gray-300 mt-4">
           Currently, I’m a lecture instructor at DCI (Digital Career Institute),
-          where I guide and mentor over 700 students on their journey to
+          where I guide and mentor over 500 students on their journey to
           becoming confident, job-ready developers.
         </p>
       </div>
