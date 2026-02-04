@@ -4,20 +4,21 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const experiences = [
   {
-    title: "Web Development Virtual Lecture, 2022",
+    title: "Web Development Virtual Lecture & Senior Frontend, 2022 - 2025",
     company: "Digital Career Institute",
     description: "HTML to React",
   },
   {
-    title: "Frontend-Entwickler, 2021-2022",
+    title: "Frontend-Entwickler, 2021 - 2022",
     company: "H-R GmbH",
     description: "HTML, CSS, JavaScript",
   },
   {
-    title: "WIPA GmbH, Langenfeld, 2018",
-    company: "Assistance",
-    description: "Computer Assistance - Word, Excel & Online Research",
+    title: "Freelancer Web Developer 2016 - 2019",
+    company: "E-Commerce Solutions",
+    description: "Optimization, SEO, UX Improve",
   },
+
   {
     title: "SAE Institute 2019-2021",
     company: "Game Programming",
