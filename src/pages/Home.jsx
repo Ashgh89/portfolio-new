@@ -57,7 +57,7 @@ const Home = () => {
           </Link>
 
           <a
-            href="../../public/Iman-Ash-CV.pdf"
+            href="../../public/iman-ash-cv.pdf"
             download
             className="px-6 py-3 rounded-lg border border-gold-400 text-gold-400 font-semibold hover:bg-gold-400 hover:text-ink transition-colors"
           >
@@ -65,7 +65,7 @@ const Home = () => {
           </a>
 
           <a
-            href="../../public/Iman-Ash-CV.pdf"
+            href="../../public/iman-ash-cv.pdf"
             download
             className="px-6 py-3 rounded-lg border border-gold-400 text-gold-400 font-semibold hover:bg-gold-400 hover:text-ink transition-colors"
           >
