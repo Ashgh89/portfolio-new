@@ -1,83 +1,47 @@
-// src/pages/Work.jsx
-
-const projects = [
-  {
-    title: "Germany Explorer",
-    description: "Made by React and CSS",
-    github: "https://github.com/Ashgh89/Germany-Explorer",
-    demo: "https://ashgh89.github.io/germany-explorer/",
-  },
-  {
-    title: "Portfolio",
-    description: "Made by React and Tailwind",
-    github: "https://github.com/Ashgh89/portfolio-new",
-    demo: "https://iman-ghanei.netlify.app/",
-  },
-  {
-    title: "Pizza Website",
-    description: "Made by React and CSS",
-    github: "https://github.com/Ashgh89/react-pizza-app",
-    demo: "https://ashgh89.github.io/react-pizza-app/",
-  },
-  {
-    title: "Today Fresh",
-    description: "Made by JavaScript and CSS",
-    github: "https://github.com/Ashgh89/HTML-CSS-JS__My-Restaurant",
-    demo: "https://ashgh89.github.io/HTML-CSS-JS__My-Restaurant/",
-  },
-  {
-    title: "Workout Map",
-    description: "Made by JavaScript",
-    github: "https://github.com/Ashgh89/JavaScript__Workout-Map",
-    demo: "https://ashgh89.github.io/JavaScript__Workout-Map/",
-  },
-  // {
-  //   title: "Block Breaker",
-  //   description: "Made by C# and Unity",
-  //   github: "https://github.com/Ashgh89/Block-Breaker",
-  //   demo: "https://ashgh89.github.io/Block-Breaker/",
-  // },
-  {
-    title: "Item List",
-    description: "Made by React",
-    github: "https://github.com/Ashgh89/react__item-list-app",
-    demo: "https://ashgh89.github.io/react__item-list-app/",
-  },
-  {
-    title: "Space Ship",
-    description: "Made by Unity",
-    github: "https://github.com/Ashgh89/Space-Ship/tree/main",
-    demo: "https://ashgh89.github.io/Space-Ship/",
-  },
-];
+// src/pages/Works.jsx
+import React from "react";
+import { projects } from "../data/portfolio";
 
 const Works = () => {
   return (
-    <section className="min-h-screen bg-gray-900 text-white py-20 px-6 mt-16">
+    <section className="min-h-screen bg-ink text-ivory py-28 px-6 mt-8">
       <div className="max-w-6xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-6 border-b-4 inline-block border-green-400 pb-1">
+        <span className="font-mono text-sm text-gold-400">{"<Projects />"}</span>
+        <h1 className="font-display text-4xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
           My Projects
         </h1>
-        <p className="text-lg mb-10 text-gray-300">
-          Projects I’ve worked on over the past few years
+        <p className="text-lg mb-14 text-ivory/70">
+          Projects I've worked on over the past few years
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
             <div
-              key={index}
-              className="bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition p-6 text-left"
+              key={project.title}
+              className="bg-panel border border-line rounded-xl shadow-md hover:border-gold-500/50 hover:-translate-y-1 transition-all p-6 text-left flex flex-col"
             >
-              <h3 className="text-2xl font-semibold mb-2 text-green-400">
+              <h3 className="text-xl font-display font-semibold mb-2 text-ivory">
                 {project.title}
               </h3>
-              <p className="text-gray-300 mb-4">{project.description}</p>
-              <div className="flex gap-4">
+              <p className="text-ivory/60 text-sm mb-4">{project.description}</p>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs font-mono px-2 py-1 rounded-md bg-panel2 text-gold-300 border border-line"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-3 mt-auto">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-white bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded"
+                  className="text-sm text-ivory bg-panel2 hover:bg-line px-4 py-2 rounded-lg transition-colors"
                 >
                   GitHub
                 </a>
@@ -85,9 +49,9 @@ const Works = () => {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-white bg-green-600 hover:bg-green-500 px-4 py-2 rounded"
+                  className="text-sm text-ink font-medium bg-gold-500 hover:bg-gold-400 px-4 py-2 rounded-lg transition-colors"
                 >
-                  Take a Look!
+                  Live Demo
                 </a>
               </div>
             </div>

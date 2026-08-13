@@ -1,38 +1,65 @@
 // src/pages/Home.jsx
 import React from "react";
+import { Link } from "react-router-dom";
+import TypingRoles from "../components/TypingRoles";
+import { profile } from "../data/portfolio";
 
 const Home = () => {
   return (
     <main
       id="home"
-      className="bg-cover bg-center min-h-screen text-white px-4 py-20 mt-4"
-      style={{ backgroundImage: "url('/path-to-your-background.jpg')" }}
+      className="relative min-h-screen overflow-hidden bg-ink text-ivory bg-corner-glow"
     >
-      <div className="text-center mt-24">
-        <h1 className="text-5xl font-bold mb-6">
-          Iman <span className="text-green-400">Ghanei</span>
+      {/* Watermark monogram */}
+      <img
+        src="/ashgh.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute right-[-6%] top-1/2 -translate-y-1/2 w-[520px] max-w-none opacity-[0.06] blur-[1px]"
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-40 pb-28 flex flex-col items-start">
+        <span className="font-mono text-sm text-gold-400 mb-6 animate-fade-up">
+          {"// frontend developer · game programmer · instructor"}
+        </span>
+
+        <h1 className="font-display text-5xl md:text-7xl font-semibold tracking-tight mb-4 animate-fade-up [animation-delay:80ms]">
+          {profile.name.split(" ")[0]}{" "}
+          <span className="text-gold-400">{profile.name.split(" ")[1]}</span>
         </h1>
-        <h2 className="text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
-          <span className="text-red-600 font-mono text-2xl">PROGRAMMER:</span>{" "}
-          Frontend Developer who focuses on writing clean and effective code.
-          <br />
-          <br />
-          <span className="text-green-500 font-mono text-2xl">
-            DESIGNER:
-          </span>{" "}
-          Passionate and creative for{" "}
-          <span className="text-yellow-400">designing</span> beautiful and
-          modern websites and interfaces.
+
+        <h2 className="font-mono text-xl md:text-2xl text-mist mb-8 h-8 animate-fade-up [animation-delay:160ms]">
+          <TypingRoles roles={profile.roles} />
         </h2>
 
-        {/* Social Icons */}
-        <div className="mt-16 flex justify-center gap-4">
+        <p className="text-lg leading-relaxed text-ivory/80 max-w-2xl mb-10 animate-fade-up [animation-delay:240ms]">
+          {profile.tagline}
+        </p>
+
+        <div className="flex flex-wrap gap-4 mb-14 animate-fade-up [animation-delay:320ms]">
+          <Link
+            to="/work"
+            className="px-6 py-3 rounded-lg bg-gold-500 text-ink font-semibold hover:bg-gold-400 transition-colors"
+          >
+            View Projects
+          </Link>
+          <Link
+            to="/contact"
+            className="px-6 py-3 rounded-lg border border-line text-ivory font-semibold hover:border-gold-400 hover:text-gold-300 transition-colors"
+          >
+            Get in Touch
+          </Link>
+        </div>
+
+        <div className="flex items-center gap-5 animate-fade-up [animation-delay:400ms]">
           <a
-            href="https://github.com/Ashgh89?tab=repositories"
+            href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="text-2xl text-ivory/70 hover:text-gold-400 transition-colors"
           >
-            <i className="fab fa-github fa-3x hover:text-gray-400 transition" />
+            <i className="fab fa-github" />
           </a>
         </div>
       </div>

@@ -1,35 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
-const experiences = [
-  {
-    title: "Web Development Virtual Lecture & Senior Frontend, 2022 - 2025",
-    company: "Digital Career Institute",
-    description: "HTML to React",
-  },
-  {
-    title: "Frontend-Entwickler, 2021 - 2022",
-    company: "H-R GmbH",
-    description: "HTML, CSS, JavaScript",
-  },
-  {
-    title: "Freelancer Web Developer 2016 - 2019",
-    company: "E-Commerce Solutions",
-    description: "Optimization, SEO, UX Improve",
-  },
-
-  {
-    title: "SAE Institute 2019-2021",
-    company: "Game Programming",
-    description: "Game projects with C++, C#, and Unity",
-  },
-  {
-    title: "Medya Şirketi, Ankara",
-    company: "Teaching Assistant (Unity Basics)",
-    description: "UI, Animation, Audio, Prefab, Scripting, 2D & 3D",
-  },
-];
+import { about, experiences } from "../data/portfolio";
 
 const About = () => {
   const [index, setIndex] = useState(0);
@@ -40,83 +12,86 @@ const About = () => {
     setIndex((i) => (i === experiences.length - 1 ? 0 : i + 1));
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white px-6 py-24 flex flex-col items-center mt-16">
-      <div className="max-w-4xl text-center">
-        <h1 className="text-5xl font-extrabold mb-8 text-white tracking-tight">
-          About <span className="text-orange-400">Me</span>
+    <section className="min-h-screen bg-ink bg-radial-fade text-ivory px-6 py-28 flex flex-col items-center mt-8">
+      <div className="max-w-3xl text-center">
+        <span className="font-mono text-sm text-gold-400">{"<About />"}</span>
+        <h1 className="font-display text-4xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight">
+          About Me
         </h1>
 
-        <p className="text-lg leading-8 text-gray-300">
-          Hi, I’m{" "}
-          <span className="text-orange-400 font-semibold">Iman Ghanei</span> —
-          also known as Ash. I’m a frontend developer and game programmer who’s
-          passionate about turning ideas into interactive, responsive
-          experiences. I write clean code and love blending tech and creativity.
-        </p>
-
-        <p className="text-lg leading-8 text-gray-300 mt-4">
-          With experience in React, JavaScript, and Unity, I bring both websites
-          and games to life. I enjoy crafting intuitive UIs, optimizing
-          performance, and experimenting with design.
-        </p>
-
-        <p className="text-lg leading-8 text-gray-300 mt-4">
-          Currently, I’m a lecture instructor at DCI (Digital Career Institute),
-          where I guide and mentor over 500 students on their journey to
-          becoming confident, job-ready developers.
-        </p>
+        {about.map((paragraph, i) => (
+          <p key={i} className="text-lg leading-8 text-ivory/75 mt-4 first:mt-0">
+            {paragraph}
+          </p>
+        ))}
       </div>
 
-      {/* Carousel Section */}
-      <div className="w-full max-w-3xl mt-16 relative ">
-        <h2 className="text-3xl font-bold text-center mb-8 text-orange-400">
-          Experience
+      {/* Experience */}
+      <div className="w-full max-w-3xl mt-20 relative">
+        <span className="font-mono text-sm text-gold-400 block text-center mb-2">
+          {"<Experience />"}
+        </span>
+        <h2 className="font-display text-2xl md:text-3xl font-semibold text-center mb-10 text-ivory">
+          Where I've worked
         </h2>
 
-        <div
-          className="relative bg-cover bg-center text-white rounded-3xl shadow-2xl p-8 min-h-[250px] overflow-hidden"
-          // style={{ backgroundImage: "url(p2.jpg)" }}
-        >
+        <div className="relative bg-panel border border-line rounded-2xl shadow-2xl p-8 md:p-10 min-h-[220px] overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: 100 }}
+              initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.4 }}
-              className=" px-6 mt-2"
+              exit={{ opacity: 0, x: -60 }}
+              transition={{ duration: 0.35 }}
+              className="px-8 text-center"
             >
-              <h3 className="text-xl font-bold text-center">
+              <p className="font-mono text-xs text-gold-400 mb-2 uppercase tracking-wide">
+                {experiences[index].period}
+              </p>
+              <h3 className="text-xl font-semibold text-ivory">
                 {experiences[index].title}
               </h3>
-              <p className="text-md text-green-700  font-medium text-center">
+              <p className="text-base text-ivory/60 font-medium mt-1">
                 {experiences[index].company}
               </p>
-              <p className="text-base text-red-400 text-center">
+              <p className="text-sm text-mist mt-3">
                 {experiences[index].description}
               </p>
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation buttons */}
-          <div className="absolute inset-y-0 left-0 flex items-center pl-4">
+          <div className="absolute inset-y-0 left-2 flex items-center">
             <button
               onClick={prev}
-              className="bg-gray-200 hover:bg-orange-300 text-gray-800 p-2 rounded-full transition shadow-md"
-              aria-label="Previous"
+              className="bg-panel2 hover:bg-gold-500 hover:text-ink text-ivory p-2 rounded-full transition shadow-md border border-line"
+              aria-label="Previous experience"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-4">
+          <div className="absolute inset-y-0 right-2 flex items-center">
             <button
               onClick={next}
-              className="bg-gray-200 hover:bg-orange-300 text-gray-800 p-2 rounded-full transition shadow-md"
-              aria-label="Next"
+              className="bg-panel2 hover:bg-gold-500 hover:text-ink text-ivory p-2 rounded-full transition shadow-md border border-line"
+              aria-label="Next experience"
             >
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-6">
+          {experiences.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Go to experience ${i + 1}`}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                i === index ? "bg-gold-400" : "bg-line"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

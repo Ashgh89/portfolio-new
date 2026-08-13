@@ -1,45 +1,37 @@
 // src/pages/Skills.jsx
 import React from "react";
-import { Link } from "react-router-dom";
-
-const skills = [
-  { name: "HTML5", color: "text-orange-500" },
-  { name: "CSS3", color: "text-blue-500" },
-  { name: "SASS", color: "text-pink-500" },
-  { name: "JavaScript", color: "text-yellow-300" },
-  { name: "TypeScript", color: "text-blue-400" },
-  { name: "React", color: "text-cyan-400" },
-  { name: "Next.js", color: "text-yellow-600" },
-  { name: "Tailwind CSS", color: "text-teal-400" },
-  { name: "C#", color: "text-purple-300" },
-  { name: "Unity", color: "text-purple-600" },
-  { name: "Git & GitHub", color: "text-red-400" },
-  { name: "Responsive Design", color: "text-green-400" },
-  { name: "UI/UX Design", color: "text-purple-400" },
-  { name: "Figma", color: "text-lime-700" },
-  { name: "Express", color: "text-green-700" },
-];
+import { skillGroups } from "../data/portfolio";
 
 const Skills = () => {
   return (
-    <section className="min-h-screen bg-gray-950 text-white py-20 px-6 mt-16">
-      <div className="max-w-6xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-6 border-b-4 inline-block border-green-400 pb-1">
+    <section className="min-h-screen bg-ink text-ivory py-28 px-6 mt-8">
+      <div className="max-w-5xl mx-auto text-center">
+        <span className="font-mono text-sm text-gold-400">{"<Skills />"}</span>
+        <h1 className="font-display text-4xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
           My Skills
         </h1>
-        <p className="text-lg mb-10 text-gray-300">
-          Here are some of the technologies and tools I work with:
+        <p className="text-lg mb-14 text-ivory/70">
+          Here are some of the technologies and tools I work with
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 hover:bg-gray-700 transition p-6 rounded-xl shadow-md text-center"
-            >
-              <span className={`block text-xl font-semibold ${skill.color}`}>
-                {skill.name}
-              </span>
+        <div className="flex flex-col gap-14">
+          {skillGroups.map((group) => (
+            <div key={group.label}>
+              <h2 className="font-mono text-xs uppercase tracking-widest text-gold-400 mb-6 text-left">
+                {group.label}
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {group.skills.map((skill) => (
+                  <div
+                    key={skill}
+                    className="bg-panel border border-line hover:border-gold-500/60 hover:-translate-y-0.5 transition-all p-5 rounded-xl text-center"
+                  >
+                    <span className="block text-base font-medium text-ivory">
+                      {skill}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
