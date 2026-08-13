@@ -1,18 +1,22 @@
 // src/pages/Skills.jsx
 import React from "react";
-import { skillGroups } from "../data/portfolio";
+import { getSkillGroups } from "../data/portfolio";
+import { useLanguage } from "../i18n/LanguageContext";
+import { ui } from "../i18n/ui";
 
 const Skills = () => {
+  const { lang } = useLanguage();
+  const t = ui[lang].skills;
+  const skillGroups = getSkillGroups(lang);
+
   return (
     <section className="min-h-screen bg-ink text-ivory py-28 px-6 mt-8">
       <div className="max-w-5xl mx-auto text-center">
-        <span className="font-mono text-sm text-gold-400">{"<Skills />"}</span>
+        <span className="font-mono text-sm text-gold-400">{t.eyebrow}</span>
         <h1 className="font-display text-4xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
-          My Skills
+          {t.title}
         </h1>
-        <p className="text-lg mb-14 text-ivory/70">
-          Here are some of the technologies and tools I work with
-        </p>
+        <p className="text-lg mb-14 text-ivory/70">{t.subtitle}</p>
 
         <div className="flex flex-col gap-14">
           {skillGroups.map((group) => (

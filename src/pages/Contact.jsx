@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useLanguage } from "../i18n/LanguageContext";
+import { ui } from "../i18n/ui";
 
 // EmailJS setup checklist (fixes "form submits but nothing arrives"):
 // 1. Log into dashboard.emailjs.com and open your Email Template.
@@ -19,6 +21,8 @@ const PUBLIC_KEY = "_ZItVJtf8deZIWKCN";
 const Contact = () => {
   const form = useRef();
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const { lang } = useLanguage();
+  const t = ui[lang].contact;
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -40,20 +44,17 @@ const Contact = () => {
     <div className="min-h-screen bg-ink bg-radial-fade flex items-center px-6 py-28 mt-8">
       <div className="bg-panel border border-line p-8 md:p-14 rounded-2xl shadow-2xl max-w-2xl mx-auto w-full">
         <span className="font-mono text-sm text-gold-400 block text-center">
-          {"<Contact />"}
+          {t.eyebrow}
         </span>
         <h2 className="font-display text-4xl font-semibold text-ivory text-center mt-3 mb-4">
-          Get in Touch
+          {t.title}
         </h2>
-        <p className="text-base text-ivory/70 text-center mb-10">
-          I'd love to hear from you. Fill out the form below and I'll get back
-          to you as soon as I can.
-        </p>
+        <p className="text-base text-ivory/70 text-center mb-10">{t.subtitle}</p>
 
         <form ref={form} onSubmit={sendEmail} className="space-y-5">
           <div>
             <label htmlFor="user_name" className="block text-sm font-medium text-ivory/80 mb-2">
-              Full Name
+              {t.name}
             </label>
             <input
               type="text"
@@ -61,13 +62,13 @@ const Contact = () => {
               id="user_name"
               required
               className="w-full p-3.5 bg-panel2 text-ivory border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
-              placeholder="Enter your full name"
+              placeholder={t.namePlaceholder}
             />
           </div>
 
           <div>
             <label htmlFor="user_email" className="block text-sm font-medium text-ivory/80 mb-2">
-              Email Address
+              {t.email}
             </label>
             <input
               type="email"
@@ -75,13 +76,13 @@ const Contact = () => {
               id="user_email"
               required
               className="w-full p-3.5 bg-panel2 text-ivory border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
-              placeholder="Enter your email"
+              placeholder={t.emailPlaceholder}
             />
           </div>
 
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-ivory/80 mb-2">
-              Message
+              {t.message}
             </label>
             <textarea
               name="message"
@@ -89,7 +90,7 @@ const Contact = () => {
               required
               rows="6"
               className="w-full p-3.5 bg-panel2 text-ivory border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition resize-none"
-              placeholder="Type your message here"
+              placeholder={t.messagePlaceholder}
             ></textarea>
           </div>
 
@@ -98,18 +99,17 @@ const Contact = () => {
             disabled={status === "sending"}
             className="w-full py-3.5 px-6 bg-gold-500 text-ink font-semibold rounded-lg hover:bg-gold-400 transition disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {status === "sending" ? "Sending…" : "Send Message"}
+            {status === "sending" ? t.sending : t.send}
           </button>
 
           {status === "success" && (
             <p className="text-center text-sm text-emerald-400 pt-1" role="status">
-              Message sent — thanks for reaching out! I'll reply soon.
+              {t.success}
             </p>
           )}
           {status === "error" && (
             <p className="text-center text-sm text-red-400 pt-1" role="alert">
-              Something went wrong sending that. Please check the EmailJS
-              setup, or try again in a moment.
+              {t.error}
             </p>
           )}
         </form>

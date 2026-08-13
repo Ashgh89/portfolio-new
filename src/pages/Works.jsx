@@ -1,18 +1,22 @@
 // src/pages/Works.jsx
 import React from "react";
-import { projects } from "../data/portfolio";
+import { getProjects } from "../data/portfolio";
+import { useLanguage } from "../i18n/LanguageContext";
+import { ui } from "../i18n/ui";
 
 const Works = () => {
+  const { lang } = useLanguage();
+  const t = ui[lang].works;
+  const projects = getProjects(lang);
+
   return (
     <section className="min-h-screen bg-ink text-ivory py-28 px-6 mt-8">
       <div className="max-w-6xl mx-auto text-center">
-        <span className="font-mono text-sm text-gold-400">{"<Projects />"}</span>
+        <span className="font-mono text-sm text-gold-400">{t.eyebrow}</span>
         <h1 className="font-display text-4xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
-          My Projects
+          {t.title}
         </h1>
-        <p className="text-lg mb-14 text-ivory/70">
-          Projects I've worked on over the past few years
-        </p>
+        <p className="text-lg mb-14 text-ivory/70">{t.subtitle}</p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
@@ -43,7 +47,7 @@ const Works = () => {
                   rel="noopener noreferrer"
                   className="text-sm text-ivory bg-panel2 hover:bg-line px-4 py-2 rounded-lg transition-colors"
                 >
-                  GitHub
+                  {t.github}
                 </a>
                 <a
                   href={project.demo}
@@ -51,7 +55,7 @@ const Works = () => {
                   rel="noopener noreferrer"
                   className="text-sm text-ink font-medium bg-gold-500 hover:bg-gold-400 px-4 py-2 rounded-lg transition-colors"
                 >
-                  Live Demo
+                  {t.demo}
                 </a>
               </div>
             </div>

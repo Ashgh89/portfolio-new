@@ -2,9 +2,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import TypingRoles from "../components/TypingRoles";
-import { profile } from "../data/portfolio";
+import { profile, content } from "../data/portfolio";
+import { useLanguage } from "../i18n/LanguageContext";
+import { ui } from "../i18n/ui";
 
 const Home = () => {
+  const { lang } = useLanguage();
+  const t = ui[lang].home;
+  const c = content[lang];
+
   return (
     <main
       id="home"
@@ -20,7 +26,7 @@ const Home = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-40 pb-28 flex flex-col items-start">
         <span className="font-mono text-sm text-gold-400 mb-6 animate-fade-up">
-          {"// frontend developer · game programmer · instructor"}
+          {t.eyebrow}
         </span>
 
         <h1 className="font-display text-5xl md:text-7xl font-semibold tracking-tight mb-4 animate-fade-up [animation-delay:80ms]">
@@ -29,11 +35,11 @@ const Home = () => {
         </h1>
 
         <h2 className="font-mono text-xl md:text-2xl text-mist mb-8 h-8 animate-fade-up [animation-delay:160ms]">
-          <TypingRoles roles={profile.roles} />
+          <TypingRoles roles={c.roles} key={lang} />
         </h2>
 
         <p className="text-lg leading-relaxed text-ivory/80 max-w-2xl mb-10 animate-fade-up [animation-delay:240ms]">
-          {profile.tagline}
+          {c.tagline}
         </p>
 
         <div className="flex flex-wrap gap-4 mb-14 animate-fade-up [animation-delay:320ms]">
@@ -41,13 +47,13 @@ const Home = () => {
             to="/work"
             className="px-6 py-3 rounded-lg bg-gold-500 text-ink font-semibold hover:bg-gold-400 transition-colors"
           >
-            View Projects
+            {t.viewProjects}
           </Link>
           <Link
             to="/contact"
             className="px-6 py-3 rounded-lg border border-line text-ivory font-semibold hover:border-gold-400 hover:text-gold-300 transition-colors"
           >
-            Get in Touch
+            {t.getInTouch}
           </Link>
         </div>
 

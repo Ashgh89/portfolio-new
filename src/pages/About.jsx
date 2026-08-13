@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { about, experiences } from "../data/portfolio";
+import { content } from "../data/portfolio";
+import { useLanguage } from "../i18n/LanguageContext";
+import { ui } from "../i18n/ui";
 
 const About = () => {
   const [index, setIndex] = useState(0);
+  const { lang } = useLanguage();
+  const t = ui[lang].about;
+  const { about, experiences } = content[lang];
 
   const prev = () =>
     setIndex((i) => (i === 0 ? experiences.length - 1 : i - 1));
@@ -14,13 +19,16 @@ const About = () => {
   return (
     <section className="min-h-screen bg-ink bg-radial-fade text-ivory px-6 py-28 flex flex-col items-center mt-8">
       <div className="max-w-3xl text-center">
-        <span className="font-mono text-sm text-gold-400">{"<About />"}</span>
+        <span className="font-mono text-sm text-gold-400">{t.eyebrow}</span>
         <h1 className="font-display text-4xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight">
-          About Me
+          {t.title}
         </h1>
 
         {about.map((paragraph, i) => (
-          <p key={i} className="text-lg leading-8 text-ivory/75 mt-4 first:mt-0">
+          <p
+            key={i}
+            className="text-lg leading-8 text-ivory/75 mt-4 first:mt-0"
+          >
             {paragraph}
           </p>
         ))}
@@ -29,16 +37,16 @@ const About = () => {
       {/* Experience */}
       <div className="w-full max-w-3xl mt-20 relative">
         <span className="font-mono text-sm text-gold-400 block text-center mb-2">
-          {"<Experience />"}
+          {t.expEyebrow}
         </span>
         <h2 className="font-display text-2xl md:text-3xl font-semibold text-center mb-10 text-ivory">
-          Where I've worked
+          {t.expTitle}
         </h2>
 
         <div className="relative bg-panel border border-line rounded-2xl shadow-2xl p-8 md:p-10 min-h-[220px] overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
-              key={index}
+              key={`${lang}-${index}`}
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -60 }}
