@@ -16,7 +16,7 @@ const Home = () => {
       id="home"
       className="relative min-h-screen overflow-hidden bg-ink text-ivory bg-corner-glow"
     >
-      {/* Watermark monogram */}
+      {/* Watfermark monogram */}
       <img
         src="/ashgh.png"
         alt=""
@@ -57,7 +57,7 @@ const Home = () => {
           </Link>
 
           <a
-            href="../../Iman-Ash-CV .pdf"
+            href="../../public/Iman-Ash-CV.pdf"
             download
             className="px-6 py-3 rounded-lg border border-gold-400 text-gold-400 font-semibold hover:bg-gold-400 hover:text-ink transition-colors"
           >
@@ -65,7 +65,7 @@ const Home = () => {
           </a>
 
           <a
-            href="../../Iman-Ash-Ghanei-Lebenslauf.pdf"
+            href="../../public/Iman-Ash-CV.pdf"
             download
             className="px-6 py-3 rounded-lg border border-gold-400 text-gold-400 font-semibold hover:bg-gold-400 hover:text-ink transition-colors"
           >
