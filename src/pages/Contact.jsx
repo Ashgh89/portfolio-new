@@ -14,7 +14,7 @@ import { ui } from "../i18n/ui";
 //    `name="..."` attributes on the inputs below to match your template.
 // 4. Service ID / Template ID / Public Key below must match your EmailJS
 //    account exactly (Account > API Keys for the public key).
-const SERVICE_ID = "service_k38cald";
+const SERVICE_ID = "service_odp2fks";
 const TEMPLATE_ID = "template_bnnrxc9";
 const PUBLIC_KEY = "_ZItVJtf8deZIWKCN";
 
@@ -36,7 +36,7 @@ const Contact = () => {
       (error) => {
         console.error("EmailJS error:", error?.text || error);
         setStatus("error");
-      }
+      },
     );
   };
 
@@ -49,11 +49,16 @@ const Contact = () => {
         <h2 className="font-display text-4xl font-semibold text-ivory text-center mt-3 mb-4">
           {t.title}
         </h2>
-        <p className="text-base text-ivory/70 text-center mb-10">{t.subtitle}</p>
+        <p className="text-base text-ivory/70 text-center mb-10">
+          {t.subtitle}
+        </p>
 
         <form ref={form} onSubmit={sendEmail} className="space-y-5">
           <div>
-            <label htmlFor="user_name" className="block text-sm font-medium text-ivory/80 mb-2">
+            <label
+              htmlFor="user_name"
+              className="block text-sm font-medium text-ivory/80 mb-2"
+            >
               {t.name}
             </label>
             <input
@@ -67,7 +72,10 @@ const Contact = () => {
           </div>
 
           <div>
-            <label htmlFor="user_email" className="block text-sm font-medium text-ivory/80 mb-2">
+            <label
+              htmlFor="user_email"
+              className="block text-sm font-medium text-ivory/80 mb-2"
+            >
               {t.email}
             </label>
             <input
@@ -81,7 +89,10 @@ const Contact = () => {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-ivory/80 mb-2">
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-ivory/80 mb-2"
+            >
               {t.message}
             </label>
             <textarea
@@ -103,7 +114,10 @@ const Contact = () => {
           </button>
 
           {status === "success" && (
-            <p className="text-center text-sm text-emerald-400 pt-1" role="status">
+            <p
+              className="text-center text-sm text-emerald-400 pt-1"
+              role="status"
+            >
               {t.success}
             </p>
           )}

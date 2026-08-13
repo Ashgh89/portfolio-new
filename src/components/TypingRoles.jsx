@@ -13,7 +13,10 @@ const TypingRoles = ({ roles, className = "" }) => {
 
     if (phase === "typing") {
       if (text.length < current.length) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 55);
+        timeout = setTimeout(
+          () => setText(current.slice(0, text.length + 1)),
+          55,
+        );
       } else {
         timeout = setTimeout(() => setPhase("pausing"), 1200);
       }
@@ -21,7 +24,10 @@ const TypingRoles = ({ roles, className = "" }) => {
       timeout = setTimeout(() => setPhase("erasing"), 900);
     } else if (phase === "erasing") {
       if (text.length > 0) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 30);
+        timeout = setTimeout(
+          () => setText(current.slice(0, text.length - 1)),
+          30,
+        );
       } else {
         setRoleIndex((i) => (i + 1) % roles.length);
         setPhase("typing");
