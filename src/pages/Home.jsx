@@ -55,6 +55,22 @@ const Home = () => {
           >
             {t.getInTouch}
           </Link>
+
+          <a
+            href="../../Iman-Ash-CV .pdf"
+            download
+            className="px-6 py-3 rounded-lg border border-gold-400 text-gold-400 font-semibold hover:bg-gold-400 hover:text-ink transition-colors"
+          >
+            Download CV — English
+          </a>
+
+          <a
+            href="../../Iman-Ash-Ghanei-Lebenslauf.pdf"
+            download
+            className="px-6 py-3 rounded-lg border border-gold-400 text-gold-400 font-semibold hover:bg-gold-400 hover:text-ink transition-colors"
+          >
+            Lebenslauf herunterladen — Deutsch
+          </a>
         </div>
 
         <div className="flex items-center gap-5 animate-fade-up [animation-delay:400ms]">
