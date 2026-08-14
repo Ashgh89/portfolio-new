@@ -147,6 +147,7 @@ export const content = {
     },
     projectDescriptions: {
       "Germany Explorer": "Erstellt mit React und CSS",
+      "Orbit Project": "Erstellt mit React und Tailwind",
       Portfolio: "Erstellt mit React und Tailwind",
       "Pizza Website": "Erstellt mit React und CSS",
       "Today Fresh": "Erstellt mit JavaScript und CSS",
