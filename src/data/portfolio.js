@@ -74,6 +74,7 @@ export const content = {
     },
     projectDescriptions: {
       "Germany Explorer": "Made by React and CSS",
+      "Orbit Project": "Made by React and Tailwind",
       Portfolio: "Made by React and Tailwind",
       "Pizza Website": "Made by React and CSS",
       "Today Fresh": "Made by JavaScript and CSS",
@@ -193,6 +194,12 @@ export const projectsRaw = [
     stack: ["React", "CSS"],
     github: "https://github.com/Ashgh89/Germany-Explorer",
     demo: "https://ashgh89.github.io/germany-explorer/",
+  },
+  {
+    title: "Orbit Project",
+    stack: ["React", "Tailwind"],
+    github: "https://github.com/Ashgh89/orbit-project",
+    demo: "https://ashgh89.github.io/orbit-project/",
   },
   {
     title: "Portfolio",
